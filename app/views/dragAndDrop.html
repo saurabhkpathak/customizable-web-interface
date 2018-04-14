@@ -1,0 +1,22 @@
+<div class="typesDemo">
+  <div ng-repeat="list in lists" class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{list.label}}</h3>
+      </div>
+      <div class="panel-body">
+        <ul dnd-list="list.components" dnd-allowed-types="list.allowedTypes" dnd-disable-if="list.components.length >= list.max">
+          <li ng-repeat="component in list.components" dnd-draggable="component" dnd-type="component.type" dnd-disable-if="component.type == 'unknown'"
+            dnd-moved="copyComponent($index, list)" class="background-{{component.type}}">
+            <dnd-nodrag>
+              <div dnd-handle class="handle">:::</div>
+              <div class="name">
+                <input type="text" ng-model="component.name" class="background-{{component.type}} form-control input-sm">
+              </div>
+            </dnd-nodrag>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

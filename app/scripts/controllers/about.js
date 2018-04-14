@@ -8,10 +8,10 @@
  * Controller of the webInterfaceApp
  */
 angular.module('webInterfaceApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('AboutCtrl', function ($scope, $sce, $rootScope) {
+    var componentToBeRendered = '';
+    angular.forEach($rootScope.data, function (component) {
+      componentToBeRendered += '<div class="component-container">' + component.directive + '</div>';
+    });
+    $scope.html = $sce.trustAsHtml(componentToBeRendered);
   });

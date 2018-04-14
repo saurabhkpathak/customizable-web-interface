@@ -11,7 +11,11 @@
 angular
   .module('webInterfaceApp', [
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'ngAnimate',
+    'ngTouch',
+    'ui.bootstrap',
+    'dndLists'
   ])
   .config(function ($routeProvider) {
     $routeProvider
